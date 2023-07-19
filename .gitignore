@@ -8,8 +8,10 @@
 # testing
 /coverage
 
-# production
-/build
+
+# xóa production /build để up lên github
+# # production
+# /build
 
 # misc
 .DS_Store
