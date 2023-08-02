@@ -1,21 +1,20 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { layDuLieuLocal } from "../../utils/localStore";
-import { useSelector } from "react-redux";
 import style from "./CheckOut.module.css";
 import "./CheckOut.css";
 import { datVeServ } from "../../services/datVeServices";
 import { useParams } from "react-router-dom";
-import { CloseCircleOutlined } from '@ant-design/icons';
-// import { useSelector } from "react-redux";
-// import { DAT_GHE } from "../../redux/types/QuanLyDatVeType";
+import { CloseCircleOutlined } from "@ant-design/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { DAT_GHE } from "../../redux/types/QuanLyDatVeType";
+
 // import {  QuanLyDatVeReducer} from "./../../redux/reducers/QuanLyDatVeReducer";
 
 const CheckOut = () => {
- 
-  const { danhSachGheDangDat} =useSelector(state=>state.QuanLyDatVeReducer)
-  console.log(danhSachGheDangDat)
-
-
+  // const { danhSachGheDangDat} =useSelector(state=>state.QuanLyDatVeReducer)
+  const dispatch = useDispatch();
+  const danhSachGheDangDat = useSelector((state) => state.QuanLyDatVeReducer);
+  console.log("check ghe reducer", danhSachGheDangDat);
 
   const user = layDuLieuLocal("user");
   // console.log("tài khoản ng dùng", user)
@@ -45,20 +44,27 @@ const CheckOut = () => {
     return gheInfo?.map((ghe, index) => {
       let classGheVip = ghe.loaiGhe === "Vip" ? "gheVip" : "";
       let classGheDaDat = ghe.daDat === true ? "gheDaDat" : "";
+
       return (
         <Fragment key={index}>
-          <button 
-          onClick={()=>{
-            dispatch({
-              type: DAT_GHE,
-              gheDuocChon: ghe,
-            })
-          }}
+          <button
+            onClick={() => {
+              dispatch({
+                type: DAT_GHE,
+                payload: { gheDuocChon: ghe },
+              });
+            }}
             disabled={ghe.daDat}
             className={`ghe ${classGheVip} ${classGheDaDat} items-center`}
             key={index}
           >
-            { ghe.daDat ? <CloseCircleOutlined  style={{ display: "block", color: "white"}} /> : ghe.stt}
+            {ghe.daDat ? (
+              <CloseCircleOutlined
+                style={{ display: "block", color: "white" }}
+              />
+            ) : (
+              ghe.stt
+            )}
           </button>
           {(index + 1) % 16 === 0 ? <br /> : ""}
         </Fragment>
@@ -77,7 +83,9 @@ const CheckOut = () => {
 
             <div className={`${style["trapezoid"]}`}>
               <p className="text-center mt-5 font-bold ">Màn Hình</p>
-              <div className="text-center text-white mt-5">{renderHangGhe()}</div>
+              <div className="text-center text-white mt-5">
+                {renderHangGhe()}
+              </div>
             </div>
           </div>
         </div>
@@ -96,7 +104,11 @@ const CheckOut = () => {
           <hr />
           <div className="flex flex-row my-5">
             <div className="w-4/5">
-              <span className="text-red-400 text-lg">ghế</span>
+              <span className="text-red-400 text-lg">
+                ghế
+                
+               
+              </span>
             </div>
             <div className="text-right col-span-1">
               <span className="text-green-800 text-lg">0đ</span>
