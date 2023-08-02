@@ -27,3 +27,4 @@ https://movienew.cybersoft.edu.vn/swagger/index.html
 
 trang đăng nhập, trang detail, với dashboard admin
 "# movie" 
+"# movie_" 
