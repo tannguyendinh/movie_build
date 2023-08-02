@@ -1,0 +1,35 @@
+/* render ghế  */
+
+.ghe {
+    /* ghế thường*/
+    width: 35px;
+    height: 35px;
+    border: 0.5px solid rgb(205, 205, 205);
+    border-radius: 5px ;
+    cursor: pointer;
+    margin: 9px;
+    /* margin-right: 9px;
+    margin-bottom: 15px; */
+    background-color: rgb(159, 158, 158);
+    
+  }
+
+  /* hover: */
+  .ghe:hover {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    transition: all 0.5s;
+  }
+  .gheDaDat {
+    background-color: rgb(175, 1, 1);
+    cursor: no-drop;
+  }
+  
+  .gheDangDat {
+    background-color: yellow!important;
+  }
+  
+  .gheVip {
+    background-color: rgb(255, 176, 28);
+  }
+  

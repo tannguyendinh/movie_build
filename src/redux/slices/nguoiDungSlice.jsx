@@ -13,8 +13,14 @@ export const getAllUser = createAsyncThunk('nguoiDung/getAllUser', async () => {
 // lần đầu tiên vào trang web store sẽ dc khởi tạo
 const initialState = {
   hoTen: layDuLieuLocal('user'),
+ 
   users: [],
+
+  filmDetail:{},
+
+  gheDangDat: [],
 };
+
 
 // thư viện immerjs
 export const nguoiDungSlice = createSlice({
@@ -43,7 +49,7 @@ export const nguoiDungSlice = createSlice({
     builder.addCase(getAllUser.rejected, (state, action) => {
       state.users = [
         {
-          hoTen: 'Khải',
+          hoTen: 'Tân',
           maLoaiNguoiDung: 'QuanTri',
         },
       ];

@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { movieServ } from '../../services/movieServices';
-import './listmovie.scss';
-import { NavLink } from 'react-router-dom';
-import { Button } from 'antd';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import { movieServ } from "../../services/movieServices";
+
+import { NavLink } from "react-router-dom";
+import { Button } from "antd";
+import { useDispatch } from "react-redux";
 import {
   set_loading_ended,
   set_loading_started,
-} from '../../redux/slices/loadingSlice';
+} from "../../redux/slices/loadingSlice";
 
 const ListMovie = () => {
   const [movies, setMovies] = useState([]);
@@ -27,6 +27,8 @@ const ListMovie = () => {
       });
   }, []);
 
+
+
   return (
     <div className="max-w-screen-xl mx-auto py-10">
       <h2 className="text-3xl font-bold">Danh sách phim</h2>
@@ -41,10 +43,10 @@ const ListMovie = () => {
                 className="h-60 w-full object-cover"
               />
               <div className="text my-3">
-                <h3 className="font-bold text-xl">
+                <h3 className="font-bold text-xl line-clamp-1 ">
                   <span className="text-white py-1 px-2 bg-orange-500 rounded-md mr-3">
                     C18
-                  </span>{' '}
+                  </span>
                   {item.tenPhim}
                 </h3>
                 <p className="line-clamp-2 mt-2">{item.moTa}</p>
@@ -52,8 +54,8 @@ const ListMovie = () => {
                   className="w-full inline-block"
                   to={`/detail/${item.maPhim}`}
                 >
-                  <Button className="w-full text-lg h-10" type="primary" danger>
-                    Xem ngay
+                  <Button  className="w-full text-lg h-10" type="primary" danger>
+                    <NavLink to={`/detail/${item.maPhim}`}>Xem ngay</NavLink>
                   </Button>
                 </NavLink>
               </div>

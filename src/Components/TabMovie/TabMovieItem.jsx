@@ -1,7 +1,7 @@
-import { Tabs } from 'antd';
-import React, { useEffect, useState } from 'react';
-import { rapServ } from '../../services/rapServices';
-import moment from 'moment';
+import { Tabs } from "antd";
+import React, { useEffect, useState } from "react";
+import { rapServ } from "../../services/rapServices";
+import moment from "moment";
 const TabMovieItem = ({ maHeThongRap }) => {
   const [lichChieu, setLichChieu] = useState([]);
   useEffect(() => {
@@ -34,10 +34,20 @@ const TabMovieItem = ({ maHeThongRap }) => {
                 return (
                   <div className="flex" key={index}>
                     <div className="w-2/12">
-                      <img src={item.hinhAnh} alt="" />
+                      <img
+                        style={{ width: 80, height: 120 }}
+                        src={item.hinhAnh}
+                        alt=""
+                      />
                     </div>
                     <div className="w-10/12">
-                      <h3>{item.tenPhim}</h3>
+                      <div className="font-bold text-xl line-clamp-1  ">
+                        <span className="text-white py-1 px-2 bg-orange-500 rounded-md mr-3">
+                          C18
+                        </span>
+                        {item.tenPhim}
+                      </div>
+
                       <div className="flex flex-wrap">
                         {item.lstLichChieuTheoPhim
                           .slice(0, 5)
@@ -45,10 +55,10 @@ const TabMovieItem = ({ maHeThongRap }) => {
                             return (
                               <p
                                 key={index}
-                                className="w-1/2 border border-black rounded-md py-2 px-4 mb-5"
+                                className="bg-white  p-2 text-dark bg-opacity-80 me-2 rounded-md py-2 px-4 mb-5 col-span-1 text-green-500"
                               >
                                 {moment(suatChieu.ngayChieuGioChieu).format(
-                                  'DD/MM/YYYY, h:mm'
+                                  "DD/MM/YYYY  h:mm "
                                 )}
                               </p>
                             );
@@ -68,7 +78,7 @@ const TabMovieItem = ({ maHeThongRap }) => {
   return (
     <Tabs
       tabPosition="left"
-      style={{ maxHeight: '400px', overflowY: 'scroll' }}
+      style={{ maxHeight: "400px", overflowY: "scroll" }}
       items={renderTabMovieItem()}
     />
   );

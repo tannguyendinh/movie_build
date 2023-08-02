@@ -26,7 +26,7 @@ const TabMovie = () => {
         children: <TabMovieItem maHeThongRap={item.maHeThongRap} />,
       };
     });
-  };
+  };  
 
   return (
     <div className="max-w-screen-xl mx-auto py-10">
