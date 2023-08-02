@@ -1,13 +1,13 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { layDuLieuLocal } from "../../utils/localStore";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import style from "./CheckOut.module.css";
 import "./CheckOut.css";
 import { datVeServ } from "../../services/datVeServices";
 import { useParams } from "react-router-dom";
 import { CloseCircleOutlined } from '@ant-design/icons';
-import { useSelector } from "react-redux";
-import { DAT_GHE } from "../../redux/types/QuanLyDatVeType";
+// import { useSelector } from "react-redux";
+// import { DAT_GHE } from "../../redux/types/QuanLyDatVeType";
 // import {  QuanLyDatVeReducer} from "./../../redux/reducers/QuanLyDatVeReducer";
 
 const CheckOut = () => {
@@ -15,8 +15,9 @@ const CheckOut = () => {
   const { danhSachGheDangDat} =useSelector(state=>state.QuanLyDatVeReducer)
   console.log(danhSachGheDangDat)
 
-  const user = layDuLieuLocal("user");
 
+
+  const user = layDuLieuLocal("user");
   // console.log("tài khoản ng dùng", user)
   const params = useParams();
   const [chiTietPhongVe, setChiTietPhongVe] = useState([]);
@@ -46,7 +47,8 @@ const CheckOut = () => {
       let classGheDaDat = ghe.daDat === true ? "gheDaDat" : "";
       return (
         <Fragment key={index}>
-          <button onClick={()=>{
+          <button 
+          onClick={()=>{
             dispatch({
               type: DAT_GHE,
               gheDuocChon: ghe,
