@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { nguoiDungServ } from '../../services/nguoiDungServices';
+// import { nguoiDungServ } from '../../services/nguoiDungServices';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllUser } from '../../redux/slices/nguoiDungSlice';
 import TableUser from '../../Components/TableUser/TableUser';
@@ -21,9 +21,9 @@ const UserManagement = () => {
     //     console.log(err);
     //   });
     dispatch(getAllUser());
-  }, []);
+  }, [dispatch]);
 
-  console.log(users);
+  // console.log(users);
 
   // một hàm vừa gọi dữ liệu và vừa bắn dữ liệu lên redux
   // redux không cho phép gọi bất đồng bộ bên trên reducer

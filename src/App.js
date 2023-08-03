@@ -23,7 +23,7 @@ function App() {
         </Route>
         
         {/* checkout */}
-        <Route path="/checkout/:id" element={<CheckOutTemplate />}>
+        <Route path="/datve/:id" element={<CheckOutTemplate />}>
           <Route index element={<CheckOut />} />
         </Route>
 

@@ -1,24 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { CustomCard } from "@tsamantanis/react-glassmorphism";
 import "@tsamantanis/react-glassmorphism/dist/index.css";
-// import TabMovie from "../../Components/TabMovie/TabMovie";
 import { Tabs } from "antd";
-// import { useSelector } from "react-redux";
 import { rapServ } from "../../services/rapServices";
 import { NavLink, useParams } from "react-router-dom";
-
-// import { Provider, useSelector } from "react-redux";
 import moment from "moment";
 import "./circle.css";
 
-// const { TabPane } = Tabs;
+
 
 const Detail = (maPhim) => {
-  // const filmDetail = useSelector(state => state.nguoiDungSevices.filmDetail);
-  // useEffect(()=>{
-  //     let {id } =props.match.params;
-  //     console.log("id", id)
-  // })
+  
 
   const params = useParams();
   const [maPhimDetail, setMaPhimDetail] = useState([]);
@@ -68,7 +60,7 @@ const Detail = (maPhim) => {
                       .map((lichChieu, index) => {
                         return (
                           <NavLink
-                            to={`/checkout/${lichChieu.maLichChieu}`}
+                            to={`/datve/${lichChieu.maLichChieu}`}
                             key={index}
                             className="col-span-1 text-green-700 font-bold"
                           >
@@ -162,7 +154,7 @@ const Detail = (maPhim) => {
             style={{ maxHeight: "400px", overflowY: "scroll" }}
             items={renderPhimDetail()}
           />
-          {/* <Tabs tabPosition="left" items={} /> */}
+         
         </div>
       </CustomCard>
     </div>
